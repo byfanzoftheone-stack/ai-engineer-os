@@ -1,6 +1,9 @@
 function normalizeApiBase(input: string | undefined) {
   if (!input) return '';
-  return input.trim().replace(/["',\s]+$/g, '').replace(/\/$/, '');
+  const cleaned = input.trim().replace(/["',\s]+$/g, '').replace(/\/$/, '');
+  if (!cleaned) return '';
+  if (/^https?:\/\//i.test(cleaned)) return cleaned;
+  return `https://${cleaned}`;
 }
 
 const API = normalizeApiBase(
