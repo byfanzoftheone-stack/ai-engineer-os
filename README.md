@@ -17,6 +17,22 @@ Your autonomous AI engineering co-pilot. Drop client work in, it handles it.
 
 ## Deploy in 3 Steps
 
+### Quick Setup Files (Copy/Paste)
+
+Use these checked-in templates to set local or dashboard values fast:
+
+- `backend/.env.example`
+- `frontend/.env.local.example`
+
+For local testing:
+
+```bash
+cp backend/.env.example backend/.env
+cp frontend/.env.local.example frontend/.env.local
+```
+
+Then replace placeholder URLs/keys with your actual Railway + Vercel values.
+
 ### Step 1 — Backend on Railway
 
 1. Go to [railway.app](https://railway.app) → New Project → Deploy from GitHub

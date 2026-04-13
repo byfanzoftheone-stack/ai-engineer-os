@@ -12,8 +12,26 @@ const ALLOWED_ORIGINS = [
   'https://ai-engineer.vercel.app',
 ].filter(Boolean);
 
+const corsOptions = {
+  credentials: true,
+  origin(origin, callback) {
+    if (!origin) return callback(null, true);
+
+    if (ALLOWED_ORIGINS.includes(origin)) {
+      return callback(null, true);
+    }
+
+    // Allow Vercel preview deployments (e.g. branch-name-project.vercel.app).
+    if (/^https:\/\/[a-z0-9-]+\.vercel\.app$/i.test(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error(`CORS blocked for origin: ${origin}`));
+  },
+};
+
 app.use(helmet());
-app.use(cors({ origin: ALLOWED_ORIGINS, credentials: true }));
+app.use(cors(corsOptions));
 app.use(express.json({ limit: '4mb' }));
 app.use(morgan('short'));
 

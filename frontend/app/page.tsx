@@ -334,7 +334,7 @@ function EvalTab() {
         {result && (
           <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 space-y-3">
             <div className="text-xs font-mono text-cyan-500">EVALUATION RESULT</div>
-            {'scores' in result && result.scores && typeof result.scores === 'object' && (
+            {'scores' in result && typeof result.scores === 'object' && result.scores !== null && (
               <div className="grid grid-cols-3 gap-2">
                 {Object.entries(result.scores as Record<string, number>).map(([k, v]) => (
                   <div key={k} className="bg-gray-950 rounded p-2 text-center">
