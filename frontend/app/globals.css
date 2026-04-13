@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #050c18;
+  color: #c8deff;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0b1628; }
+::-webkit-scrollbar-thumb { background: #1a2d4a; border-radius: 2px; }
+
+pre { white-space: pre-wrap; word-break: break-word; }
+code { font-family: 'DM Mono', 'Courier New', monospace; }
