@@ -316,7 +316,7 @@ function TasksTab({ newTask }: { newTask: Task | null }) {
 // ─── REVIEW ───────────────────────────────────────────────────────────────────
 function ReviewTab() {
   const [type, setType] = useState<'prompt'|'code'|'architecture'>('prompt');
-  const [input, setInput] = useState(''); const [context, setContext] = useState(''); const [result, setResult] = useState(''); const [loading, setLoading] = useState(false);
+  const [input, setInput] = useState(''); const [context, setContext] = useState(''); const [result, setResult] = useState<Record<string,unknown>|null>(null); const [loading, setLoading] = useState(false);
   async function submit() {
     if (!input.trim()) return; setLoading(true); setResult('');
     const body: Record<string,string> = type==='code'?{code:input,context}:type==='prompt'?{prompt:input,goal:context}:{description:input};
