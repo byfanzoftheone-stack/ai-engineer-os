@@ -366,7 +366,7 @@ function EvalTab() {
       <button onClick={run} disabled={loading||!prompt.trim()||!outA.trim()} className="w-full py-2 bg-cyan-700 hover:bg-cyan-600 disabled:opacity-40 text-white rounded-lg font-mono text-sm flex items-center justify-center gap-2">{loading?<><Spinner/>Evaluating...</>:'RUN EVALUATION →'}</button>
       {result&&<div className="bg-gray-900 border border-gray-700 rounded-lg p-4 space-y-3">
         <div className="text-xs font-mono text-cyan-500">RESULT</div>
-        {'scores' in result&&result.scores&&typeof result.scores==='object'&&<div className="grid grid-cols-3 gap-2">{Object.entries(result.scores as Record<string,number>).map(([k,v])=><div key={k} className="bg-gray-950 rounded p-2 text-center"><div className="text-xl font-bold text-cyan-400">{v}<span className="text-xs text-gray-500">/10</span></div><div className="text-xs text-gray-500">{k}</div></div>)}</div>}
+        {'scores' in result&&typeof result.scores==='object'&&result.scores!==null&&<div className="grid grid-cols-3 gap-2">{Object.entries(result.scores as Record<string,number>).map(([k,v])=><div key={k} className="bg-gray-950 rounded p-2 text-center"><div className="text-xl font-bold text-cyan-400">{v}<span className="text-xs text-gray-500">/10</span></div><div className="text-xs text-gray-500">{k}</div></div>)}</div>}
         {'overall' in result&&<div className="text-center text-2xl font-bold text-cyan-400">Overall: {String(result.overall)}/10</div>}
         {'winner' in result&&<div className="text-center text-2xl font-bold text-cyan-400">Winner: Model {String(result.winner)}</div>}
         {'reasoning' in result&&<Output text={String(result.reasoning||'')}/>}
