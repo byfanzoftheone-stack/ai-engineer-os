@@ -1,0 +1,36 @@
+{
+  "repo": "ai-engineer-os",
+  "tiers": [
+    {
+      "key": "starter",
+      "setup_fee": 798,
+      "monthly_fee": 238,
+      "includes": [
+        "index_of_flow_setup",
+        "core_automation",
+        "monthly_review"
+      ]
+    },
+    {
+      "key": "growth",
+      "setup_fee": 997,
+      "monthly_fee": 297,
+      "includes": [
+        "starter",
+        "weekly_optimization",
+        "white_label_pack"
+      ]
+    },
+    {
+      "key": "premium",
+      "setup_fee": 1595,
+      "monthly_fee": 535,
+      "includes": [
+        "growth",
+        "analytics_reporting",
+        "outreach_compounding"
+      ]
+    }
+  ],
+  "generated_at": "2026-05-09T18:50:34.335Z"
+}
